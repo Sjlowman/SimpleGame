@@ -93,7 +93,7 @@
                 if (score === brickRowCount * brickColumnCount) {
                   alert("YOU WIN, CONGRATULATIONS!");
                   document.location.reload();
-                  clearInterval(interval); // Needed for Chrome to end game
+                  //clearInterval(interval); // Needed for Chrome to end game
                 }
               }
             }
@@ -174,7 +174,7 @@
             if (!lives) {
               alert("GAME OVER");
               document.location.reload();
-              clearInterval(interval); // Needed for Chrome to end game
+              //clearInterval(interval); // Needed for Chrome to end game
             } else {
               x = canvas.width / 2;
               y = canvas.height - 30;
@@ -189,9 +189,10 @@
         } else if (leftPressed) {
           paddleX = Math.max(paddleX - 7, 0);
         }
+        requestAnimationFrame(draw);
       }
 
-      const interval = setInterval(draw, 10);
+      draw();
 
       /* Draw a filled rectangle
       ctx.beginPath();
