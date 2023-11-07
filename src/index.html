@@ -25,12 +25,12 @@
       const paddleHeight = 10;
       const paddleWidth = 75;
       const brickRowCount = 3;
-      const brickColumnCount = 5;
-      const brickWidth = 75;
+      const brickColumnCount = 6;
+      const brickWidth = 70;
       const brickHeight = 20;
-      const brickPadding = 10;
+      const brickPadding = 5;
       const brickOffsetTop = 30;
-      const brickOffsetLeft = 30;
+      const brickOffsetLeft = 20;
       const bricks = [];
       for (let c = 0; c < brickColumnCount; c++) {
         bricks[c] = [];
@@ -48,6 +48,8 @@
       let leftPressed = false;
       let score = 0;
       let lives = 3;
+      let level = 1;
+      let rowColour = ["green", "red", "yellow"];
 
       document.addEventListener("keydown", keyDownHandler, false);
       document.addEventListener("keyup", keyUpHandler, false);
@@ -143,7 +145,8 @@
               bricks[c][r].y = brickY;
               ctx.beginPath();
               ctx.rect(brickX, brickY, brickWidth, brickHeight);
-              ctx.fillStyle = "#0095DD";
+              //ctx.fillStyle = "#0095DD";
+              ctx.fillStyle = rowColour[r];
               ctx.fill();
               ctx.closePath();
             }
