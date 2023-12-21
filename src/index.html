@@ -64,7 +64,7 @@
       }
 
       function keyUpHandler(e) {
-        if (e.key === "Right" || e.key === "ArrowRight") {
+        if (e.key === "Right" || e.key === "ArrowRight" || e.key === "d") {
           rightPressed = false;
         } else if (e.key === "Left" || e.key === "ArrowLeft") {
           leftPressed = false;
@@ -93,6 +93,8 @@
                 b.status = 0;
                 score++;
                 if (score === brickRowCount * brickColumnCount) {
+                  level++;
+
                   alert("YOU WIN, CONGRATULATIONS!");
                   document.location.reload();
                   //clearInterval(interval); // Needed for Chrome to end game
@@ -113,6 +115,12 @@
         ctx.font = "16px Arial";
         ctx.fillStyle = "#0095DD";
         ctx.fillText(`Lives: ${lives}`, canvas.width - 65, 20);
+      }
+
+      function drawGameOver() {
+        ctx.font = "48px Arial";
+        ctx.fillStyle = "#0095DD";
+        ctx.fillText(`GAME OVER`, canvas.width / 4, canvas.height / 2);
       }
 
       function drawBall() {
@@ -145,7 +153,6 @@
               bricks[c][r].y = brickY;
               ctx.beginPath();
               ctx.rect(brickX, brickY, brickWidth, brickHeight);
-              //ctx.fillStyle = "#0095DD";
               ctx.fillStyle = rowColour[r];
               ctx.fill();
               ctx.closePath();
@@ -176,6 +183,7 @@
             lives--;
             if (!lives) {
               alert("GAME OVER");
+              //drawGameOver();
               document.location.reload();
               //clearInterval(interval); // Needed for Chrome to end game
             } else {
