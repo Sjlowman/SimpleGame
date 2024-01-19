@@ -13,3 +13,4 @@ Possible enhancements:
 6. Moving to a non-linear/choose your level from a menu
 7. Change the paddle to a space-ship style that shoots missiles to destroy the blocks, and add missiles coming in the opposite direction to make the game hard enough to be enjoyable.
 8. Add a main menu that allows the user to chose which mode they want to play (paddle or space-ship)
+9. Add the bug splatting game from webinar 
